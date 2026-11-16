@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "iterations": 600000,
+  "salt": "+vAYEPLGTUYjcwc5e6yeJw==",
+  "iv": "B0GOddUkm3sORKMd",
+  "file": "pages-data/poems.enc"
+}

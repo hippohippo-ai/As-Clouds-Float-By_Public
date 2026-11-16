@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>云浮怪骨集 — As Clouds Float By</title>
+  <meta name="description" content="云浮怪骨集 · As Clouds Float By —— 一部原创古典诗词集">
+  <meta property="og:title" content="云浮怪骨集 — As Clouds Float By">
+  <meta property="og:description" content="天生怪骨临荒表，浮云也有归时节。">
+  <meta property="og:image" content="./云浮集_YunFuJi/99_其他/Front.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="./云浮集_YunFuJi/99_其他/Front.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Long+Cang&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20260824">
+</head>
+<body>
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#hero">云浮怪骨集</a>
+      <div class="nav-links">
+        <a class="nav-link" href="#hero">卷首</a>
+        <a class="nav-link" href="#collection">目录</a>
+        <a class="nav-link" href="#footer">关于</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="菜单" aria-expanded="false">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <!-- 水墨背景图及保底 -->
+    <div class="hero-bg"></div>
+    <!-- 动态水墨晕染组件 -->
+    <div class="ink-blob ink-1"></div>
+    <div class="ink-blob ink-2"></div>
+    <div class="ink-blob ink-3"></div>
+
+    <div class="hero-content">
+      <p class="hero-en">As Clouds Float By</p>
+      <h1 class="hero-title">云浮怪骨集</h1>
+      <div class="hero-divider"></div>
+      <p class="hero-quote">天生怪骨临荒表</p>
+      <p class="hero-sub-quote">浮云也有归时节</p>
+      <p class="hero-author">鱼眠子 著</p>
+      <a class="hero-cta" href="#collection">翻阅诗集</a>
+    </div>
+  </section>
+
+  <section id="filter-section">
+    <div class="filter-bar">
+      <!-- 视图模式下拉框 (卷次目录 / 创作年谱) -->
+      <div class="filter-item view-select-group">
+        <select id="view-mode-select" class="hidden-native-select" aria-label="视图模式">
+          <option value="volume">卷次目录</option>
+          <option value="timeline">创作年谱</option>
+        </select>
+        <div class="custom-select-container" id="custom-view-select">
+          <button type="button" class="custom-select-trigger" id="custom-view-trigger">
+            <span class="custom-select-label" id="custom-view-label">卷次目录</span>
+            <span class="custom-select-arrow"></span>
+          </button>
+          <div class="custom-select-menu" id="custom-view-menu" role="listbox"></div>
+        </div>
+      </div>
+
+      <!-- 卷次下拉框 (仅在卷次目录模式下显示) -->
+      <div class="filter-item volume-select-group" id="volume-select-wrapper">
+        <select id="volume-select" class="hidden-native-select" aria-label="选择卷次"></select>
+        <div class="custom-select-container" id="custom-volume-select">
+          <button type="button" class="custom-select-trigger" id="custom-volume-trigger">
+            <span class="custom-select-label" id="custom-volume-label">全部卷次</span>
+            <span class="custom-select-arrow"></span>
+          </button>
+          <div class="custom-select-menu" id="custom-volume-menu" role="listbox"></div>
+        </div>
+      </div>
+
+      <!-- 体裁下拉框 -->
+      <div class="filter-item genre-select-group" id="genre-select-wrapper">
+        <select id="genre-select" class="hidden-native-select" aria-label="选择体裁"></select>
+        <div class="custom-select-container" id="custom-genre-select">
+          <button type="button" class="custom-select-trigger" id="custom-genre-trigger">
+            <span class="custom-select-label" id="custom-genre-label">全部体裁</span>
+            <span class="custom-select-arrow"></span>
+          </button>
+          <div class="custom-select-menu" id="custom-genre-menu" role="listbox"></div>
+        </div>
+      </div>
+
+      <!-- 搜索框 -->
+      <div class="filter-item search-group">
+        <input type="text" id="search-input" placeholder="检索诗词、句子或词牌…">
+      </div>
+
+      <!-- 快捷功能按钮组 -->
+      <div class="filter-actions">
+        <button class="btn-layout btn-random" id="btn-random-poem" title="随机一首">
+          <span class="random-text" id="random-text">随缘</span>
+        </button>
+        <button class="btn-layout btn-layout-dual" id="btn-toggle-layout" title="切换横排/竖排">
+          <span class="opt-layout opt-layout-vertical">竖</span>
+          <span class="opt-layout opt-layout-horizontal">横</span>
+        </button>
+        <button class="btn-layout btn-layout-dual" id="btn-toggle-lang" title="切换简繁体">
+          <span class="opt-lang opt-lang-simplified">简</span>
+          <span class="opt-lang opt-lang-traditional">繁</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <main id="collection">
+    <div class="poems-container" id="poems-container"></div>
+  </main>
+
+  <div class="modal" id="poem-modal">
+    <div class="modal-overlay"></div>
+    <!-- 沉浸式背景（已增加默认水墨保底） -->
+    <div class="poem-cinematic-bg" id="poem-cinematic-bg"></div>
+    <div class="ink-splash-overlay">
+      <div class="ink-mist-layer"></div>
+      <div class="ink-drop ink-drop-1" id="ink-drop-1"></div>
+      <div class="ink-drop ink-drop-2" id="ink-drop-2"></div>
+    </div>
+    <div class="modal-container">
+      <div class="rice-paper-texture"></div>
+      <div class="book-pagination top-pagination">
+        <button class="nav-prev-poem" id="btn-prev-poem">← 上一首</button>
+        <button class="nav-toc" id="btn-toc">目 录</button>
+        <button class="nav-next-poem" id="btn-next-poem">下一首 →</button>
+      </div>
+      <div class="modal-body">
+        <header class="poem-header">
+          <h2 class="poem-detail-title"></h2>
+          <div class="poem-meta">
+            <span class="poem-genre-badge"></span>
+            <span class="poem-volume-badge"></span>
+          </div>
+          <p class="poem-epigraph" id="poem-epigraph"></p>
+        </header>
+        <div class="poem-divider">❖</div>
+        <div class="poem-content-area">
+          <div class="poem-text"></div>
+        </div>
+        <p class="poem-date-location" id="poem-date-location"></p>
+        <footer class="poem-footer-details">
+          <div class="poem-translation-block" id="poem-translation-block">
+            <h4 class="translation-label">详解</h4>
+            <div class="poem-translation-text" id="poem-translation-text"></div>
+          </div>
+          <details class="author-notes-details" id="author-notes-details">
+            <summary class="author-notes-summary">作者按 / 创作后记</summary>
+            <div class="author-notes-content" id="author-notes-content"></div>
+          </details>
+          <div class="poem-images-section" id="poem-images-section">
+            <div class="poem-images-gallery" id="poem-images-gallery"></div>
+            <button class="btn-add-image" id="btn-add-image" title="添加/上传配图">+ 添加配图</button>
+            <input type="file" id="image-upload" accept="image/*" multiple hidden>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <div class="footer-inner">
+      <p class="footer-title"><span class="brand-cn">云浮怪骨集</span> · As Clouds Float By</p>
+      <p class="footer-sub">天生怪骨临荒表 · 浮云也有归时节</p>
+      <div class="footer-authors">
+        <span class="author-label">作者 / Author</span>
+        <div class="author-links">
+          <span class="author-penname">鱼眠子</span>
+          <span class="author-sep">（</span>
+          <a href="https://github.com/dddd2dddd2" target="_blank" rel="noopener noreferrer">dddd2dddd2</a>
+          <span class="author-sep">·</span>
+          <a href="https://github.com/hippohippo-ai" target="_blank" rel="noopener noreferrer">SomethingHippo</a>
+          <span class="author-sep">）</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-overlay"></div>
+    <button class="lightbox-close" aria-label="关闭">&times;</button>
+    <button class="lightbox-prev" aria-label="上一张">‹</button>
+    <button class="lightbox-next" aria-label="下一张">›</button>
+    <div class="lightbox-image-wrap" id="lightbox-image-wrap">
+      <img class="lightbox-image" id="lightbox-image" alt="配图大图预览" loading="lazy">
+      <img class="stamp-overlay" id="lightbox-stamp" alt="印章" loading="lazy" src="./云浮集_YunFuJi/99_其他/Stamp.png">
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/umd/full.js"></script>
+  <script type="module" src="js/public.js"></script>
+</body>
+</html>
