@@ -1,5 +1,7 @@
 # 云浮怪骨集 · 加密公开版
 
+https://hippohippo-ai.github.io/As-Clouds-Float-By_Public/
+
 本目录由《云浮怪骨集》主项目生成，页面上的诗词数据与配图均以 AES-256-GCM 加密。
 
 - 打开站点后输入阅读密码即可解锁；
